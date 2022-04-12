@@ -120,7 +120,6 @@ de_nuts_osm_sf <- de_nuts_osm |>
   mutate(map2_dfr(id, type, osm_geometry)) |>
   st_as_sf()
 
-
 # Solve missing NUTS-2 regions --------------------------------------------
 
 nuts2_missing <- de_nuts_ec |>
