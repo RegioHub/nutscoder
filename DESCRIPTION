@@ -14,3 +14,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 URL: https://github.com/long39ng/nutscoder
 BugReports: https://github.com/long39ng/nutscoder/issues
+Depends: 
+    R (>= 2.10)
+LazyData: true
+LazyDataCompression: xz
