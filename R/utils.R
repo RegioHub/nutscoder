@@ -17,8 +17,8 @@ osm_geometry <- function(location, nominatim_api) {
 }
 
 #' @importFrom dplyr .data
-nuts_join <- function(sf, nuts) {
-  sf::st_join(sf, st_buffer_1km(nuts), sf::st_covered_by) |>
+nuts_join <- function(sf, nuts, return_geometry) {
+  ret <- sf::st_join(sf, st_buffer_1km(nuts), sf::st_covered_by) |>
     sf::st_drop_geometry() |>
     dplyr::filter(!is.na(.data$nuts_1)) |>
     # Keep row(s) with the lowest NUTS level for each place
@@ -30,6 +30,13 @@ nuts_join <- function(sf, nuts) {
     dplyr::slice_max(.data$nuts_level) |>
     dplyr::ungroup() |>
     dplyr::select(.data$location, .data$name, .data$nuts_1, .data$nuts_2, .data$nuts_3)
+
+  if (isTRUE(return_geometry)) {
+    ret <- nutscoder::de_nuts_osm_sf |>
+      dplyr::right_join(ret, by = c("name", "nuts_1", "nuts_2", "nuts_3"))
+  }
+
+  ret
 }
 
 st_buffer_1km <- function(sf) sf::st_buffer(sf, units::set_units(1000, m))

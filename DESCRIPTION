@@ -1,10 +1,11 @@
 Package: nutscoder
-Title: What the Package Does (One Line, Title Case)
+Title: Geocoding, But the Output is NUTS Region Codes
 Version: 0.0.0.9000
 Authors@R: 
     person("Long", "Nguyen", , "long.nguyen@uni-bielefeld.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8878-7386"))
-Description: What the package does (one paragraph).
+Description: Attempts to find NUTS region codes
+    <https://ec.europa.eu/eurostat/web/nuts/background> for location names.
 License: MIT + file LICENSE
 URL: https://github.com/long39ng/nutscoder
 BugReports: https://github.com/long39ng/nutscoder/issues

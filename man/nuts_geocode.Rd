@@ -4,12 +4,19 @@
 \alias{nuts_geocode}
 \title{Get NUTS codes for location strings}
 \usage{
-nuts_geocode(locations, nominatim_api = "https://nominatim.openstreetmap.org")
+nuts_geocode(
+  locations,
+  nominatim_api = "https://nominatim.openstreetmap.org",
+  return_geometry = FALSE
+)
 }
 \arguments{
 \item{locations}{Character vector of locations to geocode}
 
 \item{nominatim_api}{URL of the Nominatim API}
+
+\item{return_geometry}{If TRUE, returns the sf geometry of the geocoded NUTS
+regions}
 }
 \value{
 A data.frame with 5 columns:
