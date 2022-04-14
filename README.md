@@ -3,7 +3,9 @@
 
 # nutscoder
 
-{nutscoder} provides the function `nuts_geocode`, which attempts to find [NUTS region codes](https://ec.europa.eu/eurostat/web/nuts/background) for location names.
+{nutscoder} provides the function `nuts_geocode`, which attempts to find
+[NUTS region codes](https://ec.europa.eu/eurostat/web/nuts/background)
+for location names.
 
 <!-- badges: start -->
 
@@ -22,19 +24,27 @@ You can install the development version of {nutscoder} like so:
 remotes::install_github("long39ng/nutscoder")
 ```
 
-## Example
+## Examples
 
 ``` r
 library(nutscoder)
-nuts_geocode(c("munich", "hamburg"))
-#> # A tibble: 2 × 5
-#>   location name    nuts_1 nuts_2 nuts_3
-#>   <chr>    <chr>   <chr>  <chr>  <chr> 
-#> 1 hamburg  Hamburg DE6    DE60   DE600 
-#> 2 munich   München DE2    DE21   DE212
+nuts_geocode(c("Hamburgo", "هامبورغ", "HH", "Berlin", "🐻Bärlin", "ベルリン",
+               "North Rhine-Westphalia", "nrw"))
+#> # A tibble: 8 × 5
+#>   location               name                nuts_1 nuts_2 nuts_3
+#>   <chr>                  <chr>               <chr>  <chr>  <chr> 
+#> 1 Hamburgo               Hamburg             DE6    DE60   DE600 
+#> 2 هامبورغ                Hamburg             DE6    DE60   DE600 
+#> 3 HH                     Hamburg             DE6    DE60   DE600 
+#> 4 Berlin                 Berlin              DE3    DE30   DE300 
+#> 5 🐻Bärlin               Berlin              DE3    DE30   DE300 
+#> 6 ベルリン               Berlin              DE3    DE30   DE300 
+#> 7 North Rhine-Westphalia Nordrhein-Westfalen DEA    <NA>   <NA>  
+#> 8 nrw                    Nordrhein-Westfalen DEA    <NA>   <NA>
 ```
 
-The [sf](https://r-spatial.github.io/sf/) geometry of the geocoded NUTS regions can be returned:
+The [sf](https://r-spatial.github.io/sf/) geometry of the geocoded NUTS
+regions can be returned:
 
 ``` r
 nuts_geocode(c("berlin", "brandenburg"), return_geometry = TRUE) |> 

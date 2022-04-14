@@ -31,11 +31,12 @@ You can install the development version of {nutscoder} like so:
 remotes::install_github("long39ng/nutscoder")
 ```
 
-## Example
+## Examples
 
 ```{r}
 library(nutscoder)
-nuts_geocode(c("munich", "hamburg"))
+nuts_geocode(c("Hamburgo", "هامبورغ", "HH", "Berlin", "🐻Bärlin", "ベルリン",
+               "North Rhine-Westphalia", "nrw"))
 ```
 
 The [sf](https://r-spatial.github.io/sf/) geometry of the geocoded NUTS regions can be returned:
