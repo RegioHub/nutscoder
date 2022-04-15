@@ -21,14 +21,7 @@ nuts_join <- function(sf, nuts, return_geometry) {
   ret <- sf::st_join(sf, st_buffer_1km(nuts), sf::st_covered_by) |>
     sf::st_drop_geometry() |>
     dplyr::filter(!is.na(.data$nuts_1)) |>
-    # Keep row(s) with the lowest NUTS level for each place
-    dplyr::mutate(nuts_level = purrr::pmap_int(
-      list(.data$nuts_1, .data$nuts_2, .data$nuts_3),
-      \(...) 3L - sum(is.na(c(...)))
-    )) |>
-    dplyr::group_by(.data$place_id) |>
-    dplyr::slice_max(.data$nuts_level) |>
-    dplyr::ungroup() |>
+    nuts_slice_lowest() |>
     dplyr::select(.data$location, .data$name, .data$nuts_1, .data$nuts_2, .data$nuts_3)
 
   if (isTRUE(return_geometry)) {
@@ -37,6 +30,23 @@ nuts_join <- function(sf, nuts, return_geometry) {
   }
 
   ret
+}
+
+nuts_slice_lowest <- function(nuts_df) {
+  nuts_df |>
+    dplyr::mutate(
+      nuts_level = purrr::pmap_int(
+        list(.data$nuts_1, .data$nuts_2, .data$nuts_3),
+        \(...) 3L - sum(is.na(c(...)))
+      ),
+      row_nr = dplyr::row_number()
+    ) |>
+    dplyr::group_by(.data$location) |>
+    dplyr::slice_max(.data$nuts_level) |>
+    dplyr::ungroup() |>
+    dplyr::mutate(location = as.character(.data$location)) |>
+    dplyr::arrange(.data$row_nr) |>
+    dplyr::select(-.data$row_nr)
 }
 
 st_buffer_1km <- function(sf) sf::st_buffer(sf, units::set_units(1000, m))
