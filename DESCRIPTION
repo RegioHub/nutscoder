@@ -1,14 +1,15 @@
 Package: nutscoder
-Title: Geocoding, But the Output is NUTS Region Codes
-Version: 0.0.0.9000
+Title: Geocoding to NUTS Region Codes
+Version: 0.1.0
 Authors@R: 
-    person("Long", "Nguyen", , "long.nguyen@uni-bielefeld.de", role = c("aut", "cre"),
+    person("H. Long", "Nguyen", , "long.nguyen@uni-bielefeld.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8878-7386"))
 Description: Attempts to find NUTS region codes
-    <https://ec.europa.eu/eurostat/web/nuts/background> for location names.
+    <https://ec.europa.eu/eurostat/web/nuts/background> for location
+    names.
 License: MIT + file LICENSE
-URL: https://github.com/long39ng/nutscoder
-BugReports: https://github.com/long39ng/nutscoder/issues
+URL: https://github.com/RegioHub/nutscoder
+BugReports: https://github.com/RegioHub/nutscoder/issues
 Depends: 
     R (>= 4.1)
 Imports: 
@@ -25,4 +26,4 @@ Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
