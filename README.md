@@ -11,8 +11,8 @@ output: github_document
 {nutscoder} provides the function `nuts_geocode`, which attempts to find [NUTS region codes](https://ec.europa.eu/eurostat/web/nuts/background) for location names by using [Nominatim](https://nominatim.org) to search [OpenStreetMap (OSM)](https://www.openstreetmap.org) data.
 
 <!-- badges: start -->
+[![DOI](https://zenodo.org/badge/476698751.svg)](https://zenodo.org/badge/latestdoi/476698751)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/nutscoder)](https://CRAN.R-project.org/package=nutscoder)
 [![R-CMD-check](https://github.com/RegioHub/nutscoder/workflows/R-CMD-check/badge.svg)](https://github.com/RegioHub/nutscoder/actions)
 <!-- badges: end -->
 
@@ -63,7 +63,7 @@ The argument `nominatim_api` can be used to specify the API URL of the Nominatim
 To cite package 'nutscoder' in publications use:
 
   Nguyen HL (2023). {nutscoder}: Geocoding to NUTS Region Codes.
-  <https://doi.org/10.5281/zenodo.XXXXXXX>,
+  <https://doi.org/10.5281/zenodo.7679254>,
   <https://github.com/RegioHub/nutscoder>
 
 A BibTeX entry for LaTeX users is
@@ -72,7 +72,7 @@ A BibTeX entry for LaTeX users is
 ```
 @Manual{,
   title = {{nutscoder}: Geocoding to NUTS Region Codes},
-  doi = {10.5281/zenodo.XXXXXXX},
+  doi = {10.5281/zenodo.7679254},
   author = {H. Long Nguyen},
   year = {2023},
   version = {0.1.0},

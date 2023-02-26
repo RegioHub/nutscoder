@@ -18,8 +18,8 @@ knitr::opts_chunk$set(
 {nutscoder} provides the function `nuts_geocode`, which attempts to find [NUTS region codes](https://ec.europa.eu/eurostat/web/nuts/background) for location names by using [Nominatim](https://nominatim.org) to search [OpenStreetMap (OSM)](https://www.openstreetmap.org) data.
 
 <!-- badges: start -->
+[![DOI](https://zenodo.org/badge/476698751.svg)](https://zenodo.org/badge/latestdoi/476698751)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/nutscoder)](https://CRAN.R-project.org/package=nutscoder)
 [![R-CMD-check](https://github.com/RegioHub/nutscoder/workflows/R-CMD-check/badge.svg)](https://github.com/RegioHub/nutscoder/actions)
 <!-- badges: end -->
 
