@@ -7,7 +7,7 @@ Authors@R:
 Description: Attempts to find NUTS region codes
     <https://ec.europa.eu/eurostat/web/nuts/background> for location names.
 License: MIT + file LICENSE
-URL: https://github.com/long39ng/nutscoder
+URL: https://github.com/long39ng/nutscoder, https://regiohub.github.io/nutscoder/
 BugReports: https://github.com/long39ng/nutscoder/issues
 Depends: 
     R (>= 4.1)
@@ -25,4 +25,4 @@ Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
