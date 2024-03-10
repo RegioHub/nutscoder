@@ -3,28 +3,28 @@
 
 # nutscoder
 
-{nutscoder} provides the function `nuts_geocode`, which attempts to find
-[NUTS region codes](https://ec.europa.eu/eurostat/web/nuts/background)
-for location names.
-
 <!-- badges: start -->
 
+[![DOI](https://zenodo.org/badge/476698751.svg)](https://zenodo.org/badge/latestdoi/476698751)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/nutscoder)](https://CRAN.R-project.org/package=nutscoder)
-[![R-CMD-check](https://github.com/long39ng/nutscoder/workflows/R-CMD-check/badge.svg)](https://github.com/long39ng/nutscoder/actions)
+[![R-CMD-check](https://github.com/RegioHub/nutscoder/workflows/R-CMD-check/badge.svg)](https://github.com/RegioHub/nutscoder/actions)
 <!-- badges: end -->
+
+{nutscoder} provides the function `nuts_geocode`, which attempts to find
+[NUTS region codes](https://ec.europa.eu/eurostat/web/nuts/background)
+for location names by using [Nominatim](https://nominatim.org) to search
+[OpenStreetMap (OSM)](https://www.openstreetmap.org) data.
 
 ## Installation
 
 You can install the development version of {nutscoder} like so:
 
 ``` r
-remotes::install_github("long39ng/nutscoder")
+remotes::install_github("RegioHub/nutscoder")
 ```
 
-## Examples
+## Usage
 
 ``` r
 library(nutscoder)
@@ -53,3 +53,44 @@ nuts_geocode(c("berlin", "brandenburg"), return_geometry = TRUE) |>
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+The argument `nominatim_api` can be used to specify the API URL of the
+Nominatim instance used to search for OSM data. By default,
+`nuts_geocode()` uses the public Nominatim instance
+(`nominatim_api = "https://nominatim.openstreetmap.org"`), which has an
+absolute maximum of 1 request per second and is not suitable for
+intensive use. You can [install your own instance of
+Nominatim](https://nominatim.org/release-docs/latest/admin/Installation/)
+to avoid the limitations of the public instance.
+
+## Citation
+
+To cite package ‘nutscoder’ in publications use:
+
+Nguyen HL (2023). {nutscoder}: Geocoding to NUTS Region Codes.
+<https://doi.org/10.5281/zenodo.7679254>,
+<https://github.com/RegioHub/nutscoder>
+
+A BibTeX entry for LaTeX users is
+
+    @Manual{,
+      title = {{nutscoder}: Geocoding to NUTS Region Codes},
+      doi = {10.5281/zenodo.7679254},
+      author = {H. Long Nguyen},
+      year = {2023},
+      version = {0.1.1},
+      url = {https://github.com/RegioHub/nutscoder},
+    }
+
+## Disclaimers
+
+The use of the server running at <https://nominatim.openstreetmap.org>
+is governed by the [Nominatim Usage
+Policy](https://operations.osmfoundation.org/policies/nominatim/).
+
+Geodata from OpenStreetMap are licensed under the terms of the [Open
+Database License (ODbL)
+1.0](http://www.opendatacommons.org/licenses/odbl/).
+
+Use of any OSMF provided service is further governed by the [OSMF Terms
+of Use](https://wiki.osmfoundation.org/wiki/Terms_of_Use).
